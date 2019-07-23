@@ -4,22 +4,22 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
-import { RecepieListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecepieItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { RecepieDetailComponent } from './recipes/recipe-detail/recepie-detail.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { HeaderComponent } from './header/header.component';
-import { RecepieBookComponent } from './recipes/recipes.component';
+import { RecipeBookComponent } from './recipes/recipes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShoppingListComponent,
     ShoppingListEditComponent,
-    RecepieListComponent,
-    RecepieItemComponent,
-    RecepieDetailComponent,
+    RecipeListComponent,
+    RecipeItemComponent,
+    RecipeDetailComponent,
     HeaderComponent,
-    RecepieBookComponent
+    RecipeBookComponent
   ],
   imports: [
     BrowserModule

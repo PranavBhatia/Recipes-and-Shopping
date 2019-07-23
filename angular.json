@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ShoppingAndRecepies": {
+    "ShoppingAndRecipes": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ShoppingAndRecepies",
+            "outputPath": "dist/ShoppingAndRecipes",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ShoppingAndRecepies:build"
+            "browserTarget": "ShoppingAndRecipes:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ShoppingAndRecepies:build:production"
+              "browserTarget": "ShoppingAndRecipes:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ShoppingAndRecepies:build"
+            "browserTarget": "ShoppingAndRecipes:build"
           }
         },
         "test": {
@@ -107,15 +107,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ShoppingAndRecepies:serve"
+            "devServerTarget": "ShoppingAndRecipes:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ShoppingAndRecepies:serve:production"
+              "devServerTarget": "ShoppingAndRecipes:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ShoppingAndRecepies"
+  "defaultProject": "ShoppingAndRecipes"
 }
