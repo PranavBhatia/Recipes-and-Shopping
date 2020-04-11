@@ -6,7 +6,7 @@ export const LOGOUT = 'LOGOUT';
 export class Login implements Action {
   readonly type: string = LOGIN;
 
-  constructor(public payload: { email: string, userId: string, token: string, expiresDate: Date }) {
+  constructor(public payload: { email: string, userId: string, token: string, expirationDate: Date }) {
   }
 }
 
