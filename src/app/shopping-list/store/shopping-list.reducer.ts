@@ -28,21 +28,21 @@ export function shoppingListReducer(
     case ShoppingListActions.ADD_INGREDIENT:
       return {
         ...state,
-        ingredients: [...state.ingredients, action.payload]
+        ingredients: [...state.ingredients, (action as ShoppingListActions.AddIngredient).payload]
       };
     case ShoppingListActions.ADD_INGREDIENTS:
       return {
         ...state,
-        ingredients: [...state.ingredients, ...action.payload]
+        ingredients: [...state.ingredients, ...(action as ShoppingListActions.AddIngredients).payload]
       };
     case ShoppingListActions.UPDATE_INGREDIENT:
-      const ingredient = state.ingredients[action.payload.index];
+      const ingredient = state.ingredients[(action as ShoppingListActions.UpdateIngredient).payload.index];
       const updatedIngredient = {
         ...ingredient,
-        ...action.payload.ingredient
+        ...(action as ShoppingListActions.UpdateIngredient).payload.ingredient
       };
       const updatedIngredients = [...state.ingredients];
-      updatedIngredients[action.payload.index] = updatedIngredient;
+      updatedIngredients[(action as ShoppingListActions.UpdateIngredient).payload.index] = updatedIngredient;
 
       return {
         ...state,
@@ -52,8 +52,20 @@ export function shoppingListReducer(
       return {
         ...state,
         ingredients: state.ingredients.filter((ig, igIndex) => {
-          return igIndex !== action.payload;
+          return igIndex !== (action as ShoppingListActions.DeleteIngredient).payload;
         })
+      };
+    case ShoppingListActions.START_EDIT:
+      return {
+        ...state,
+        editedIngredient: {...state.ingredients[(action as ShoppingListActions.StartEdit).payload]},
+        editedIngredientIndex: (action as ShoppingListActions.StartEdit).payload
+      };
+    case ShoppingListActions.STOP_EDIT:
+      return {
+        ...state,
+        editedIngredient: null,
+        editedIngredientIndex: -1
       };
     default:
       return state;
