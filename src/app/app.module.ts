@@ -7,7 +7,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core.module';
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 import * as fromApp from './store/app.reducer';
+import {AuthEffects} from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import * as fromApp from './store/app.reducer';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.aapReducer),
+    EffectsModule.forRoot([AuthEffects]),
     SharedModule,
     CoreModule
   ],
