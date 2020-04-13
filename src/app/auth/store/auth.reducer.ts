@@ -15,12 +15,12 @@ const initialState: State = {
 
 export function authReducer(state = initialState, action: AuthActions.AuthActions) {
   switch (action.type) {
-    case AuthActions.LOGIN:
+    case AuthActions.AUTHENTICATE_SUCCESS:
       const user = new User(
-        (action as AuthActions.Login).payload.email,
-        (action as AuthActions.Login).payload.userId,
-        (action as AuthActions.Login).payload.token,
-        (action as AuthActions.Login).payload.expirationDate
+        (action as AuthActions.AuthenticateSuccess).payload.email,
+        (action as AuthActions.AuthenticateSuccess).payload.userId,
+        (action as AuthActions.AuthenticateSuccess).payload.token,
+        (action as AuthActions.AuthenticateSuccess).payload.expirationDate
       );
       return {
         ...state,
@@ -34,11 +34,11 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
         authError: null,
         loading: true
       };
-    case AuthActions.LOGIN_FAIL:
+    case AuthActions.AUTHENTICATE_FAIL:
       return {
         ...state,
         user: null,
-        authError: (action as AuthActions.LoginFail).payload,
+        authError: (action as AuthActions.AuthenticateFail).payload,
         loading: false
       };
     case AuthActions.LOGOUT:
