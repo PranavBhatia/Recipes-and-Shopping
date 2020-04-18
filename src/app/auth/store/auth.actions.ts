@@ -54,4 +54,5 @@ export type AuthActions =
   | LoginStart
   | AuthenticateFail
   | AuthenticateSuccess
-  | ClearError;
+  | ClearError
+  | AutoLogin;
