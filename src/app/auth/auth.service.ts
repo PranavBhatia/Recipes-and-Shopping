@@ -60,48 +60,6 @@ export class AuthService {
     return throwError(errorMessage);
   }
 
-  signUp(email: string, password: string) {
-    return this.httpClient
-      .post<AuthResponseData>(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`,
-        {
-          email,
-          password,
-          returnSecureToken: true
-        }
-      )
-      .pipe(
-        catchError(AuthService.handleError),
-        tap(resData => this.handleAuthentication(
-          resData.email,
-          resData.localId,
-          resData.idToken,
-          +resData.expiresIn)
-        )
-      );
-  }
-
-  login(email: string, password: string) {
-    return this.httpClient
-      .post<AuthResponseData>(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`,
-        {
-          email,
-          password,
-          returnSecureToken: true
-        }
-      )
-      .pipe(
-        catchError(AuthService.handleError),
-        tap(resData => this.handleAuthentication(
-          resData.email,
-          resData.localId,
-          resData.idToken,
-          +resData.expiresIn)
-        )
-      );
-  }
-
   logout() {
     // this.user.next(null);
     this.router.navigate(['/auth']).then();
